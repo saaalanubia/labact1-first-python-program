@@ -37,6 +37,55 @@ d = """No one but one being liked having a Fluffy as a pet and
 that being was Hades,god of the underworld. """
 e = """But Zeus can manage Fluffy and Hades at the same time with
 his powerful thunderbolts and casting of storms."""
+
+package arrayaddresscalculator;
+
+import java.util.Scanner;
+
+public class ArrayAddressCalculation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Get the base address from the user
+        System.out.print("Enter the base address: ");
+        int baseAddress = scanner.nextInt();
+
+        // Get the element size (width) from the user
+        System.out.print("Enter the element size (width): ");
+        int elementSize = scanner.nextInt();
+
+        // Get the number of dimensions from the user
+        System.out.print("Enter the number of dimensions: ");
+        int numDimensions = scanner.nextInt();
+
+        // Create an array to store the upper bounds of each dimension
+        int[] upperBounds = new int[numDimensions];
+
+        // Get the upper bounds for each dimension from the user
+        for (int i = 0; i < numDimensions; i++) {
+            System.out.print("Enter the upper bound for dimension " + (i + 1) + ": ");
+            upperBounds[i] = scanner.nextInt();
+        }
+
+        // Create an array to store the target indices for each dimension
+        int[] targets = new int[numDimensions];
+
+        // Get the target indices for each dimension from the user
+        for (int i = 0; i < numDimensions; i++) {
+            System.out.print("Enter the target index for dimension " + (i + 1) + ": ");
+            targets[i] = scanner.nextInt();
+        }
+
+        // Calculate the array address using RMS (Row-Major-Order)
+        int address = baseAddress;
+        int multiplier = elementSize;
+
+        for (int i = 0; i < numDimensions; i++) {
+            multiplier *= upperBounds[i];
+            address += multiplier * targets[i];
+        }
+
+
 print(a + b + c + d + e)
 
 
