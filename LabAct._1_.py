@@ -88,5 +88,42 @@ public class ArrayAddressCalculation {
 
 print(a + b + c + d + e)
 
+import java.util.Scanner;
 
+import java.util.Scanner;
+
+public class ArrayAddress {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        char[] array = {'a', 'b', 'c', 'd', 'e', 'f'};
+        
+         // Get the base address from the user
+        System.out.print("Enter the base address: ");
+        int baseAddress = scanner.nextInt();
+
+        // Get the element size (width) from the user
+        System.out.print("Enter the element size (width): ");
+        int elementSize = scanner.nextInt();
+        
+        System.out.println("Enter a single character: ");
+        char character = scanner.next().charAt(0);
+        
+        int index = -1; // Initialize index to -1 as a flag
+        
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == character) {
+                index = i;
+                break; // Stop searching once the character is found
+            }
+        }
+        
+        if (index != -1) {
+            int address = baseAddress + (index * elementSize);
+            System.out.println("Address of character " + character + ": " + address);
+        } else {
+            System.out.println("Character not found in the array.");
+        }
+    }
+}
 
